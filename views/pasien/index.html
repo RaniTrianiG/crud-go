@@ -32,6 +32,24 @@
                     <th>Aksi</th>
                 </tr>
             </thead>
+            <tbody>
+                {{ range .pasien }}
+                    <tr>
+                        <td>{{ .NamaLengkap }}</td>
+                        <td>{{ .NIK }}</td>
+                        <td>{{ .Alamat }}</td>
+                        <td>{{ .TempatLahir }}</td>
+                        <td>{{ .TanggalLahir }}</td>
+                        <td>{{ .JenisKelamin }}</td>
+                        <td>{{ .NoHP }}</td>
+                        <td>
+                            <a href="/pasien/edit?id={{.Id}}" class="btn btn-sm btn-warning">Edit</a>
+                            <br /> <br />
+                            <a href="/pasien/delete?id={{.Id}}" onclick="return confirm('Apakah anda yakin akan menghapus data?')" class="btn btn-sm btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                {{ end }}
+            </tbody>
         </table>
     </div>
 <body>
